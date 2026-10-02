@@ -13,6 +13,67 @@ document.documentElement.classList.remove("no-js");
   });
 })();
 
+// ---------- Header: hide on scroll down, show again on scroll up ----------
+(function () {
+  const header = document.querySelector(".site-header");
+  const nav = document.getElementById("site-nav");
+  if (!header) return;
+  let lastY = window.scrollY;
+  let ticking = false;
+
+  function update() {
+    const y = window.scrollY;
+    const h = header.offsetHeight;
+    const menuOpen = nav && nav.classList.contains("is-open");
+    if (y <= h || menuOpen) {
+      header.classList.remove("is-hidden");
+    } else if (y > lastY + 4) {
+      header.classList.add("is-hidden");      // scrolling down
+    } else if (y < lastY - 4) {
+      header.classList.remove("is-hidden");   // scrolling up
+    }
+    header.classList.toggle("is-raised", y > h);
+    if (Math.abs(y - lastY) > 4) lastY = y;
+    ticking = false;
+  }
+
+  window.addEventListener("scroll", function () {
+    if (!ticking) { window.requestAnimationFrame(update); ticking = true; }
+  }, { passive: true });
+
+  // Keyboard users: always show the header when something inside it gets focus.
+  header.addEventListener("focusin", function () { header.classList.remove("is-hidden"); });
+})();
+
+// ---------- Phone call bar: show it only when it isn't a duplicate ----------
+// Hidden at the top of the page, slides up once you scroll down — but stays
+// away while another Call/Text/WhatsApp button row is visible on screen.
+(function () {
+  const bar = document.querySelector(".callbar");
+  if (!bar) return;
+  const rows = Array.prototype.filter.call(
+    document.querySelectorAll("main .btn-row"),
+    function (row) { return row.querySelector('a[href^="tel:"]'); }
+  );
+  const onScreen = new Set();
+
+  function update() {
+    bar.classList.toggle("is-shown", window.scrollY > 120 && onScreen.size === 0);
+  }
+
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) onScreen.add(e.target); else onScreen.delete(e.target);
+      });
+      update();
+    });
+    rows.forEach(function (row) { io.observe(row); });
+  }
+  window.addEventListener("scroll", update, { passive: true });
+  update();
+})();
+
 // ---------- Text-message links ----------
 // iPhone wants "sms:+1...&body=", Android wants "sms:+1...?body=".
 (function () {
