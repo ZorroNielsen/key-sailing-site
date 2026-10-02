@@ -1,4 +1,4 @@
-# key-sailing-sarasota
+# 1-key-sailing-sarasota
 
 Nový web pro **Key Sailing Sarasota** (siestakeysailing.com) — soukromé
 plavby na plachetnici Key Breeze s kapitánem Timem a Jan Solomonovými,
@@ -6,8 +6,11 @@ Marina Jack, Sarasota FL. Skutečný klient (Jan), ne ukázkový web.
 
 ## Status
 
-**První verze (náhled pro Jan)** — hotová lokálně, 2. 10. 2026.
-Druhý web ze stejného zadání: `../sailing-home-sarasota/` (Janina kniha).
+**První verze (náhled pro Jan)** — hotová, 2. 10. 2026.
+Repo: [adam-kriz/1-key-sailing-sarasota](https://github.com/adam-kriz/1-key-sailing-sarasota).
+
+Tohle je **web č. 1 ze dvou** ze stejného zadání (proto „1-" v názvu).
+Web č. 2: `../2-sailing-home-sarasota/` (Janina kniha), repo `2-sailing-home-sarasota`.
 
 ## Hlavní pravidlo
 
@@ -87,5 +90,5 @@ souboru zvlášť** — změna v nich = změnit ve všech 9 souborech.
 
 ## Lokální náhled
 
-`.claude/launch.json` v kořeni workspace: konfigurace `key-sailing-sarasota`
+`.claude/launch.json` v kořeni workspace: konfigurace `1-key-sailing-sarasota`
 (Python `http.server` na portu 8127) → http://localhost:8127
