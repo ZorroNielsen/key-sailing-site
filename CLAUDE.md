@@ -88,6 +88,12 @@ souboru zvlášť** — změna v nich = změnit ve všech 9 souborech.
   k 1. 1. 2027 všech 7 kontinentů) — v `about-us.html` je TODO komentář
 - Kontrola španělštiny (Tim), pak překlad zbytku stránek
 
+## Při spuštění (až weby nahradí ty staré)
+
+- Smazat `robots.txt` a `<meta name="robots" content="noindex…">` ze všech stránek
+- Zapnout skutečné odesílání formulářů
+- Odkazy „Jan's book" (patička + About Us) teď vedou na náhled `adam-kriz.github.io/2-sailing-home-sarasota/` → při spuštění vrátit na `https://sailinghomesarasota.com/`
+
 ## Lokální náhled
 
 `.claude/launch.json` v kořeni workspace: konfigurace `1-key-sailing-sarasota`
