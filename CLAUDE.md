@@ -27,6 +27,10 @@ Vědomé odchylky od starého webu:
   nahrazena vloženou mapou Google + tlačítkem „Get directions" (podle briefu).
 - About Us: u fotek v časové ose vypuštěno „(JPG - 421KB)" apod.
   U PDF ponecháno, protože velikost varuje před velkým stažením.
+- Úpravy od Jan (4. 10. 2026): nový text dárkových poukazů na Home a Reserve
+  („Purchase a gift certificate now: …", nahradil „What a perfect present…"),
+  věta o španělštině / 50 státech / 7 kontinentech na About Us, nové znění
+  trust line na Home. Španělský koncept Home přeložen podle toho.
 - Překlepy z originálu jsou **ponechány** (Buiness, gratituity, occassion,
   suprises, „it's first 25,000 miles") — opravit jen se souhlasem Jan.
 
@@ -83,9 +87,7 @@ souboru zvlášť** — změna v nich = změnit ve všech 9 souborech.
 
 - Nové fotky lodi (hero `keybreeze-banner.jpg` je malá, 665 px)
 - Větší verze loga (`keysailing_logo72dpi.gif` má 389 px)
-- Odkaz na články v **Southern Living** (teď `href="#"`) a případně jejich logo
-- Přesné znění nových faktů na About Us (mluví španělsky, všech 50 států,
-  k 1. 1. 2027 všech 7 kontinentů) — v `about-us.html` je TODO komentář
+- Články ze **Southern Living** — do té doby je „As seen twice in Southern Living Magazine" jen prostý text bez odkazu
 - Kontrola španělštiny (Tim), pak překlad zbytku stránek
 
 ## Při spuštění (až weby nahradí ty staré)
