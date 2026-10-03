@@ -7,7 +7,7 @@ Marina Jack, Sarasota FL. Skutečný klient (Jan), ne ukázkový web.
 ## Status
 
 **První verze (náhled pro Jan)** — hotová, 2. 10. 2026.
-Repo: [adam-kriz/1-key-sailing-sarasota](https://github.com/adam-kriz/1-key-sailing-sarasota).
+Repo: [ZorroNielsen/key-sailing-site](https://github.com/ZorroNielsen/key-sailing-site) (copied from adam-kriz/1-key-sailing-sarasota).
 
 Tohle je **web č. 1 ze dvou** ze stejného zadání (proto „1-" v názvu).
 Web č. 2: `../2-sailing-home-sarasota/` (Janina kniha), repo `2-sailing-home-sarasota`.
@@ -94,7 +94,7 @@ souboru zvlášť** — změna v nich = změnit ve všech 9 souborech.
 
 - Smazat `robots.txt` a `<meta name="robots" content="noindex…">` ze všech stránek
 - Zapnout skutečné odesílání formulářů
-- Odkazy „Jan's book" (patička + About Us) teď vedou na náhled `adam-kriz.github.io/2-sailing-home-sarasota/` → při spuštění vrátit na `https://sailinghomesarasota.com/`
+- Odkazy „Jan's book" (patička + About Us) teď vedou na náhled `zorronielsen.github.io/sailing-home-sarasota-site/` → při spuštění vrátit na `https://sailinghomesarasota.com/`
 
 ## Lokální náhled
 
