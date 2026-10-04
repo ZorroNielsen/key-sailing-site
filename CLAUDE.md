@@ -136,6 +136,24 @@ Web Analytics: zapíná se v dashboardu (projekt → Metrics → Web Analytics),
 - Turnstile: přidat ostré domény do hostnames widgetu
 - Odkazy „Jan's book" (patička + About Us) teď vedou na náhled `sailing-home-sarasota-site.pages.dev` → při spuštění vrátit na `https://sailinghomesarasota.com/`
 
+## Po spuštění — zápisy na mapách a v katalozích
+
+Všude **přesně stejné údaje** (Google pak firmě víc věří):
+Key Sailing Sarasota · 2 Marina Plaza, Slip E-19, Sarasota FL 34236 ·
+941-346-7245 · https://siestakeysailing.com/ (stejné jako JSON-LD na Home).
+
+- **Google Business Profile** — nejdřív potřeba **pozvánka od Jan jako
+  manažer** (Business Profile settings → Managers → Add). Pak: sjednotit
+  údaje, odkaz na nový web, nahrát Janiny nové fotky, nahlásit/odstranit
+  fotku **katamaránu** (Key Breeze je jednotrupá Morgan 41', ne katamarán).
+- **Bing Places** — umí importovat údaje z Google profilu.
+- **Apple Maps** — přes Apple Business Connect.
+- **Siesta Key Chamber of Commerce** (siestakeychamber.com/listing/key-sailing-charters/,
+  tel. (941) 349-3800) — v popisu mají „Sarasota's longest running sailing
+  charter (24 years!)", ale firma běží od 1996 → poprosit o opravu
+  (nejlíp „Established 1996", ať to znovu nezastará) a sjednotit adresu
+  (mají „Marina Jack Slip E-19").
+
 ## Lokální náhled
 
 `.claude/launch.json` v kořeni workspace: konfigurace `key-sailing-site`
