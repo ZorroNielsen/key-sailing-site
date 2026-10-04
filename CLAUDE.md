@@ -131,7 +131,7 @@ Web Analytics: zapíná se v dashboardu (projekt → Metrics → Web Analytics),
 - Formuláře: v Resend ověřit doménu, `MAIL_FROM` přepnout na adresu z ní,
   pak `FORMS_LIVE = "true"` (teprve tehdy chodí zprávy Jan)
 - Turnstile: přidat ostré domény do hostnames widgetu
-- Odkazy „Jan's book" (patička + About Us) teď vedou na náhled `zorronielsen.github.io/sailing-home-sarasota-site/` → při spuštění vrátit na `https://sailinghomesarasota.com/`
+- Odkazy „Jan's book" (patička + About Us) teď vedou na náhled `sailing-home-sarasota-site.pages.dev` → při spuštění vrátit na `https://sailinghomesarasota.com/`
 
 ## Lokální náhled
 
