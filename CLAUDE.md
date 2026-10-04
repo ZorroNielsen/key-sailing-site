@@ -28,7 +28,8 @@ Vědomé odchylky od starého webu:
 - Directions: věta „Click map to view Google Maps in a separate window"
   nahrazena vloženou mapou Google + tlačítkem „Get directions" (podle briefu).
 - About Us: u fotek v časové ose vypuštěno „(JPG - 421KB)" apod.
-  U PDF ponecháno, protože velikost varuje před velkým stažením.
+  U PDF ponecháno, protože velikost varuje před velkým stažením. Dvě PDF jsou
+  komprimovaná (On a Mission, 21 Things), proto u nich 1.5MB a 1.8MB místo 59MB a 28MB.
 - Úpravy od Jan (4. 10. 2026): nový text dárkových poukazů na Home a Reserve
   („Purchase a gift certificate now: …", nahradil „What a perfect present…"),
   věta o španělštině / 50 státech / 7 kontinentech na About Us, nové znění
