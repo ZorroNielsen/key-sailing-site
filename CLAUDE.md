@@ -96,9 +96,9 @@ souboru zvlášť** — změna v nich = změnit ve všech 10 souborech (včetně
   nepošle) + Cloudflare Turnstile. **Bezpečnost:** dokud je ve `wrangler.toml`
   `FORMS_LIVE = "false"`, jde každá zpráva na `TEST_TO`, nikdy na Jan.
   Lokálně (python http.server) funkce neběží → formulář ukáže chybovou hlášku.
-- **Turnstile** — v `email-us.html` je zatím **testovací** site key
-  `1x00000000000000000000AA` (vždy projde, ukazuje „For testing only").
-  Po vytvoření widgetu v Cloudflare vyměnit za skutečný site key.
+- **Turnstile** — widget „Sarasota sites" (společný pro oba weby), site key
+  `0x4AAAAAAFNkFBzFm2CQXTsB` v `email-us.html`. Hostnames zatím jen `*.pages.dev`; při spuštění
+  přidat ostré domény. Secret key je v Pages secrets (`TURNSTILE_SECRET_KEY`).
 - **Počítání kliknutí** — Call / Text / WhatsApp / gift tlačítka pošlou
   `navigator.sendBeacon` na `/api/tap` → D1 databáze `sarasota-sites`,
   tabulka `taps` (site, day, type, count; den v čase Sarasoty). Žádná osobní
