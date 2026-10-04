@@ -469,6 +469,14 @@ fieldset.field { border: 0; margin: 0; padding: 0; }
   font-size: 1.4rem; font-weight: 700;
 }
 
+/* Honeypot field: hidden from people, bots fill it in */
+.hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.cf-turnstile { min-height: 65px; }
+.form-fail {
+  margin-top: 1rem; padding: 1rem 1.25rem; border-radius: var(--radius);
+  border: 2px solid var(--blue); background: var(--tint); color: var(--ink); font-weight: 700;
+}
+
 /* ---------- Footer ---------- */
 
 .site-footer { background: var(--blue-dark); color: var(--white); padding-block: 3rem 1.5rem; font-size: 1.1rem; }

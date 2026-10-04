@@ -1,4 +1,4 @@
-# 1-key-sailing-sarasota
+# key-sailing-site
 
 Nový web pro **Key Sailing Sarasota** (siestakeysailing.com) — soukromé
 plavby na plachetnici Key Breeze s kapitánem Timem a Jan Solomonovými,
@@ -6,11 +6,13 @@ Marina Jack, Sarasota FL. Skutečný klient (Jan), ne ukázkový web.
 
 ## Status
 
-**První verze (náhled pro Jan)** — hotová, 2. 10. 2026.
-Repo: [ZorroNielsen/key-sailing-site](https://github.com/ZorroNielsen/key-sailing-site) (copied from adam-kriz/1-key-sailing-sarasota).
+**První verze (náhled pro Jan)** — hotová, 2. 10. 2026. Od 4. 10. 2026 se
+pracuje **jen v tomhle repu**: [ZorroNielsen/key-sailing-site](https://github.com/ZorroNielsen/key-sailing-site)
+(vzniklo kopií `adam-kriz/1-key-sailing-sarasota`, to staré už neupravovat).
+Hosting: **Cloudflare Pages** (účet „Websitesbychris.co@gmail.com's Account"),
+projekt `key-sailing-site` → `key-sailing-site.pages.dev`.
 
-Tohle je **web č. 1 ze dvou** ze stejného zadání (proto „1-" v názvu).
-Web č. 2: `../2-sailing-home-sarasota/` (Janina kniha), repo `2-sailing-home-sarasota`.
+Web č. 1 ze dvou. Web č. 2: `../sailing-home-sarasota-site/` (Janina kniha).
 
 ## Hlavní pravidlo
 
@@ -52,14 +54,22 @@ webu** (aby fungovaly staré odkazy a výsledky Googlu):
 | `es/index.html` | Španělský **koncept** jen Home (čeká na kontrolu od Tima) |
 
 - `style.css` — celý vzhled; barvy jako CSS proměnné v `:root`
-- `js/main.js` — mobilní menu, západ slunce, dárkové poukazy, formulář
+- `js/main.js` — mobilní menu, západ slunce, dárkové poukazy, formulář,
+  počítání kliknutí
+- `functions/api/contact.js` — formulář Email Us → e-mail přes Resend
+- `functions/api/tap.js` — počítadlo kliknutí → D1
+- `wrangler.toml` — nastavení Cloudflare Pages (proměnné, D1); tajné klíče tu **nejsou**
+- `_redirects` — staré adresy Muse `/phone/*` → nové stránky; `/review` (čeká na odkaz)
+- `404.html` — stránka „Page not found" (absolutní cesty `/…`, zobrazí se na jakékoli adrese)
+- `sitemap.xml` — adresy s ostrou doménou siestakeysailing.com
 - `images/` — fotky a loga ze starého webu (malé rozlišení!)
 - `assets/` — PDF a fotky ke stažení (stejné cesty jako na starém webu)
 - `robots.txt` + `<meta name="robots" content="noindex">` — náhled se
   nemá objevit ve vyhledávačích
 
 Hlavička, patička a spodní lišta Call/Text/WhatsApp jsou **v každém HTML
-souboru zvlášť** — změna v nich = změnit ve všech 9 souborech.
+souboru zvlášť** — změna v nich = změnit ve všech 10 souborech (včetně
+`404.html`). CSS/JS odkazy mají `?v=10`; po změně stylu číslo zvýšit.
 
 ## Design
 
@@ -79,9 +89,32 @@ souboru zvlášť** — změna v nich = změnit ve všech 9 souborech.
 - **Západ slunce** — počítá se živě v prohlížeči pro Sarasotu (časové
   pásmo America/New_York), přesnost ±1–2 min.
 - **Dárkové poukazy $400/$500/$600** — zatím jen okno „Checkout comes here"
-  (Stripe Checkout se doplní později).
-- **Formulář** — v náhledu nic neodesílá, jen ukáže „Thanks! Jan will call
-  you." Ostrá verze má posílat na siestakeysailing@gmail.com.
+  (až bude mít Jan Stripe: 3 payment linky).
+- **Formulář Email Us** → `POST /api/contact` (Pages Function) → Resend.
+  Ochrana: skryté pole `website` (honeypot — vyplní ho jen bot, pak se nic
+  nepošle) + Cloudflare Turnstile. **Bezpečnost:** dokud je ve `wrangler.toml`
+  `FORMS_LIVE = "false"`, jde každá zpráva na `TEST_TO`, nikdy na Jan.
+  Lokálně (python http.server) funkce neběží → formulář ukáže chybovou hlášku.
+- **Turnstile** — v `email-us.html` je zatím **testovací** site key
+  `1x00000000000000000000AA` (vždy projde, ukazuje „For testing only").
+  Po vytvoření widgetu v Cloudflare vyměnit za skutečný site key.
+- **Počítání kliknutí** — Call / Text / WhatsApp / gift tlačítka pošlou
+  `navigator.sendBeacon` na `/api/tap` → D1 databáze `sarasota-sites`,
+  tabulka `taps` (site, day, type, count; den v čase Sarasoty). Žádná osobní
+  data. Čísla: Cloudflare → D1 → sarasota-sites → Console:
+  `SELECT day, type, count FROM taps WHERE site='key-sailing' ORDER BY day DESC;`
+- **JSON-LD LocalBusiness** v `<head>` na Home (adresa, telefon, $200 per hour).
+- **Titulky stránek** ve tvaru „… | Key Sailing Sarasota".
+
+## Cloudflare — tajné klíče (dashboard → projekt → Settings → Variables and Secrets)
+
+| Název | Co to je |
+|---|---|
+| `RESEND_API_KEY` | API klíč z Resend (sending access) |
+| `TURNSTILE_SECRET_KEY` | Secret key Turnstile widgetu |
+| `TEST_TO` | Testovací adresa, kam chodí formuláře, dokud `FORMS_LIVE` není `"true"`. Dokud se posílá z `onboarding@resend.dev`, musí to být e-mail účtu v Resend. |
+
+Web Analytics: zapíná se v dashboardu (projekt → Metrics → Web Analytics), bez kódu.
 
 ## Čeká se na Jan
 
@@ -92,11 +125,14 @@ souboru zvlášť** — změna v nich = změnit ve všech 9 souborech.
 
 ## Při spuštění (až weby nahradí ty staré)
 
-- Smazat `robots.txt` a `<meta name="robots" content="noindex…">` ze všech stránek
-- Zapnout skutečné odesílání formulářů
+- Domény siestakeysailing.com (+ www) na Cloudflare, napojit na Pages projekt
+- Smazat `Disallow: /` z `robots.txt` a `<meta name="robots" content="noindex…">` ze všech stránek
+- Formuláře: v Resend ověřit doménu, `MAIL_FROM` přepnout na adresu z ní,
+  pak `FORMS_LIVE = "true"` (teprve tehdy chodí zprávy Jan)
+- Turnstile: přidat ostré domény do hostnames widgetu
 - Odkazy „Jan's book" (patička + About Us) teď vedou na náhled `zorronielsen.github.io/sailing-home-sarasota-site/` → při spuštění vrátit na `https://sailinghomesarasota.com/`
 
 ## Lokální náhled
 
-`.claude/launch.json` v kořeni workspace: konfigurace `1-key-sailing-sarasota`
+`.claude/launch.json` v kořeni workspace: konfigurace `key-sailing-site`
 (Python `http.server` na portu 8127) → http://localhost:8127

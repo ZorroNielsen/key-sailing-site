@@ -1,0 +1,20 @@
+# Cloudflare Pages redirects (https://developers.cloudflare.com/pages/configuration/redirects/)
+
+# Google review shortcut: add Jan's review link when it arrives, then remove the #
+# /review  https://g.page/r/REPLACE-ME/review  302
+
+# Old Adobe Muse phone site (siestakeysailing.com/phone/…) → new pages
+/phone             /  301
+/phone/            /  301
+/phone/index.html  /  301
+/phone/charter-pricing.html  /charter-pricing  301
+/phone/the-vessel.html  /the-vessel  301
+/phone/faqs.html  /faqs  301
+/phone/reviews.html  /reviews  301
+/phone/about-us.html  /about-us  301
+/phone/directions.html  /directions  301
+/phone/email-us.html  /email-us  301
+/phone/*  /  301
+
+# Old Muse desktop pages keep the same names (/charter-pricing.html etc.);
+# Pages serves them and drops the .html automatically.

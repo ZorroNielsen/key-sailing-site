@@ -1,0 +1,20 @@
+# Cloudflare Pages settings for key-sailing-site.
+# Bindings and plain variables live here (this file wins over the dashboard).
+# Secrets are NOT here; set them in the dashboard (Settings > Variables and Secrets):
+#   RESEND_API_KEY, TURNSTILE_SECRET_KEY, TEST_TO
+name = "key-sailing-site"
+pages_build_output_dir = "."
+compatibility_date = "2026-09-01"
+
+[vars]
+SITE = "key-sailing"
+SITE_NAME = "Key Sailing website"
+MAIL_FROM = "Key Sailing website <onboarding@resend.dev>"
+LIVE_TO = "siestakeysailing@gmail.com"
+# Keep "false" until launch: every form goes to TEST_TO, never to Jan.
+FORMS_LIVE = "false"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "sarasota-sites"
+database_id = "e144b4ea-d510-4703-9707-21e78cbcc27a"
