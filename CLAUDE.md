@@ -128,8 +128,11 @@ Web Analytics: zapíná se v dashboardu (projekt → Metrics → Web Analytics),
 
 - Domény siestakeysailing.com (+ www) na Cloudflare, napojit na Pages projekt
 - Smazat `Disallow: /` z `robots.txt` a `<meta name="robots" content="noindex…">` ze všech stránek
-- Formuláře: v Resend ověřit doménu, `MAIL_FROM` přepnout na adresu z ní,
-  pak `FORMS_LIVE = "true"` (teprve tehdy chodí zprávy Jan)
+- Formuláře: v Resend přidat a ověřit doménu siestakeysailing.com (DNS záznamy SPF/DKIM/DMARC
+  přidat v Cloudflare DNS), `MAIL_FROM` přepnout na adresu z ní (např.
+  `website@siestakeysailing.com`), pak `FORMS_LIVE = "true"` — teprve tehdy chodí zprávy Jan.
+  Bez ověřené domény padají e-maily do spamu (test 4. 10. 2026: všechny 3
+  formuláře doručeny přes `onboarding@resend.dev`, ale do spamu).
 - Turnstile: přidat ostré domény do hostnames widgetu
 - Odkazy „Jan's book" (patička + About Us) teď vedou na náhled `sailing-home-sarasota-site.pages.dev` → při spuštění vrátit na `https://sailinghomesarasota.com/`
 
