@@ -117,12 +117,23 @@ souboru zvlášť** — změna v nich = změnit ve všech 10 souborech (včetně
 
 Web Analytics: zapíná se v dashboardu (projekt → Metrics → Web Analytics), bez kódu.
 
-## Čeká se na Jan
+## Čeká se na Jan (seznam ve zprávě pro Jan, připravené 4. 10. 2026)
 
-- Nové fotky lodi (hero `keybreeze-banner.jpg` je malá, 665 px)
-- Větší verze loga (`keysailing_logo72dpi.gif` má 389 px)
-- Články ze **Southern Living** — do té doby je „As seen twice in Southern Living Magazine" jen prostý text bez odkazu
-- Kontrola španělštiny (Tim), pak překlad zbytku stránek
+- **Google review odkaz** → doplnit do `_redirects` jako `/review` (302)
+- **Fotky**: velká hero fotka Key Breeze pod plachtami (teď `keybreeze-banner.jpg`,
+  jen 665 px), pás fotek hostů, větší fotky na The Vessel (paluba, stín,
+  kajuta, dvě toalety, bean bags). Žádné nové texty.
+- **Větší verze loga** (`keysailing_logo72dpi.gif` má 389 px)
+- **Změny z pondělního hovoru** (pošle Adam)
+- **Stripe**: 3 payment linky ($400 / $500 / $600) místo okna „Checkout comes here"
+- **Southern Living**: dva články; do té doby je „As seen twice in Southern
+  Living Magazine" jen prostý text bez odkazu
+- **Překlepy** ze starého webu: souhlas s opravou (ano/ne)
+- **Španělština**: kontrola Home od Tima, pak překlad zbytku stránek
+- **Potvrdit odkazy** facebook.com/keysailing a instagram.com/keybreezesailing
+- **Pozvánka jako manažer** do Google Business Profile (viz „Po spuštění — zápisy")
+- **Ke spuštění**: schválení náhledu; kdo spravuje doménu siestakeysailing.com
+  (přístup); jestli Jan používá e-mail na doméně (pak zachovat MX záznamy)
 
 ## Při spuštění (až weby nahradí ty staré)
 
