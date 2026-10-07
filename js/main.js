@@ -121,6 +121,48 @@ document.documentElement.classList.remove("no-js");
   });
 })();
 
+// ---------- Short silent video in a card (Home "Morning") ----------
+// Plays by itself, muted and looped, and only while it is on screen. The round
+// button pauses it (anything moving for more than 5 s needs one); visitors who
+// ask their phone for less motion just see the still poster.
+(function () {
+  document.querySelectorAll("video[data-ambient]").forEach(function (video) {
+    const btn = video.parentNode.querySelector(".video-toggle");
+    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let userPaused = reduce;
+
+    function sync() {
+      if (!btn) return;
+      btn.classList.toggle("is-paused", video.paused);
+      btn.setAttribute("aria-label", video.paused ? btn.getAttribute("data-play") : btn.getAttribute("data-pause"));
+    }
+    function play() {
+      const p = video.play();
+      if (p && p.catch) p.catch(sync); // e.g. iPhone in Low Power Mode: stays on the poster
+    }
+
+    if (reduce) { video.removeAttribute("autoplay"); video.pause(); }
+    if (btn) {
+      btn.hidden = false;
+      btn.addEventListener("click", function () {
+        if (video.paused) { userPaused = false; play(); } else { userPaused = true; video.pause(); }
+      });
+    }
+    video.addEventListener("play", sync);
+    video.addEventListener("pause", sync);
+
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) video.pause();
+          else if (!userPaused) play();
+        });
+      }).observe(video);
+    }
+    sync();
+  });
+})();
+
 // ---------- Gift certificate buttons (preview: no real checkout yet) ----------
 (function () {
   const dialog = document.getElementById("checkout");
