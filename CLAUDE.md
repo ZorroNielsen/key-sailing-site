@@ -162,7 +162,7 @@ při posouvání, text 20 px (starší hosté).
 ## Funkce
 
 - **Call / Text / WhatsApp** — `tel:+19413467245`, `sms:` s předvyplněnou
-  zprávou („Hi Jan, I'd like to book a sail on ___ for ___ people."),
+  zprávou („Hi Jan, I'm interested in sailing on the Key Breeze.“, od 12. 10. 2026 podle Donny; ES „Hola Jan, me interesa navegar en el Key Breeze.“),
   `wa.me` se stejnou zprávou. Na Androidu JS přepíše `&body=` na `?body=`.
 - **Západ slunce** — počítá se živě v prohlížeči pro Sarasotu (časové
   pásmo America/New_York), přesnost ±1–2 min.

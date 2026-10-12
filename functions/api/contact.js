@@ -3,7 +3,8 @@
 // Safety: until FORMS_LIVE is "true" (wrangler.toml), every message goes to
 // TEST_TO and never to Jan.
 //
-// Settings: wrangler.toml [vars] SITE_NAME, MAIL_FROM, LIVE_TO, FORMS_LIVE.
+// Settings: wrangler.toml [vars] SITE_NAME, MAIL_FROM, LIVE_TO, LIVE_CC (optional,
+// comma-separated: who also gets a copy once the forms are live), FORMS_LIVE.
 // Secrets (Cloudflare dashboard, never in the repo): RESEND_API_KEY,
 // TURNSTILE_SECRET_KEY, TEST_TO.
 
@@ -66,6 +67,7 @@ export async function onRequestPost({ request, env }) {
     body: JSON.stringify({
       from: env.MAIL_FROM,
       to: [to],
+      ...(live && env.LIVE_CC ? { cc: env.LIVE_CC.split(",").map((a) => a.trim()).filter(Boolean) } : {}),
       subject,
       text,
       ...(replyTo ? { reply_to: replyTo } : {}),
