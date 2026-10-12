@@ -294,14 +294,10 @@ dialog h2 { font-size: 1.75rem; }
 
 /* ---------- Awards, community, press ---------- */
 
-.awards { display: grid; grid-template-columns: 3fr 2fr; gap: var(--gap); align-items: center; }
+.awards > div { max-width: 52rem; }
 .rule-list { list-style: none; padding: 0; margin: 0; }
 .rule-list li { margin: 0; padding: 0.85rem 0; border-top: 1px solid var(--line); }
 .rule-list li:last-child { border-bottom: 1px solid var(--line); }
-.logos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; align-items: center; justify-items: center; }
-.logos img { max-height: 160px; width: auto; }
-.logos .small img { max-height: 60px; }
-@media (max-width: 860px) { .awards { grid-template-columns: 1fr; } }
 
 .community { display: grid; grid-template-columns: auto 1fr; gap: var(--gap); align-items: center; max-width: 52rem; }
 .community img { width: 150px; }

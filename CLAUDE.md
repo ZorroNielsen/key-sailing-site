@@ -52,6 +52,23 @@ Vědomé odchylky od starého webu:
   položky „Timothy and Janet Solomon Day – April 10, 2022, City of Sarasota“
   (Proclamations, odkaz na fotku proklamace `assets/proclamation-solomon-day.jpg`) a článek Observer 2023 (In the News). Španělský
   koncept upraven stejně (kontrola od Tima).
+- Úpravy od Jan (12. 10. 2026), Home EN i ES: titulek „Key Sailing Charters Sarasota |
+  Sarasota’s #1 Sailing Charter“ (ES „… | El charter de vela n.º 1 de Sarasota“, jako
+  tagline v hlavičce); v Award Winning pryč 5 log pod seznamem (TripAdvisor 2023, Hall of
+  Fame, Sarasota Chamber, Siesta Key Chamber, Visit Sarasota County; obrázky zůstávají pro
+  Reviews), text seznamu beze změny; Featured In nově **Southern Living** jako první:
+  dlaždice s názvem časopisu (`images/press-southern-living.*`, vlastní grafika, ne jejich
+  fotka ani logo) s odkazem na článek southernliving.com/sarasota-fl-11977895
+  („This Under-The-Radar Florida Beach Town…“, Kaitlyn Yarborough, 6. 6. 2026, odstavec
+  o Key Sailing + adresa). Dlaždice je obrázek, aby řada zůstala pro editor „skupina fotek“.
+  Fotky hostů: obě svatební pryč (guests-1 Tim oddává, guests-8 novomanželé) → na jejich
+  místě pár tančící na přídi pod plachtou a holčička spící pod tyrkysovou dekou (od Adama,
+  oříznuté černé okraje, čtverec 640 px, bez metadat). Jan možná později pošle jiné.
+  Hlavní fotka (Jan přišla neostrá; Adam nechal výběr na Claudovi): počítač dál IMG_2886
+  (při 100 % nejostřejší ze všech), ale znovu vyrobená z originálu: správný převod
+  Display P3 → sRGB, Lanczos + jemné doostření, WebP q86 a nová verze 3200 px pro retina
+  monitory (`hero-sunset-1600/2400/3200.webp`, záloha `1600.jpg`). Mobil nově 76D3CAD9
+  (stejná scéna, ostrá, bez světelného pruhu; 1200×1500). Kandidáti v `originals/nahledy-hero/`.
 - Directions (7. 10. 2026): Janin text „Sailing Details for your Key Sailing Private
   Charter Experience“ (jak projít ke gate E-1 kvůli stavbě) v béžovém boxu vedle mapy,
   slovo od slova podle její zprávy hostům, jen **bez emoji** (🍫 🔑 ⛵) kvůli zákazu
@@ -81,8 +98,8 @@ webu** (aby fungovaly staré odkazy a výsledky Googlu):
 
 - `site.css` — vzhled všech stránek; barvy jako CSS proměnné v `:root`
 - `images/home/` — fotky nové Home z Janiných originálů (WebP + JPG záloha,
-  bez metadat/GPS): hero na počítač (`hero-sunset-1600/2400`, IMG_2886) a na mobil
-  (`hero-sunset-phone`, IMG_1174), karty ráno/odpoledne/západ, Tim a Jan (IMG_0012),
+  bez metadat/GPS): hero na počítač (`hero-sunset-1600/2400/3200`, IMG_2886) a na mobil
+  (`hero-sunset-phone`, 76D3CAD9, od 12. 10. 2026; dřív IMG_1174), karty ráno/odpoledne/západ, Tim a Jan (IMG_0012),
   8 fotek hostů. Karta **Morning = video** `cruise-morning.mp4` (10 s z dronu,
   `joined_video…mov` od 14,5 s, 720×720, H.264 900 kb/s bez zvuku, 1,1 MB; dělané
   přes Swift/AVAssetWriter, protože `avconvert` dává 5 MB) + úvodní obrázek
@@ -108,13 +125,18 @@ webu** (aby fungovaly staré odkazy a výsledky Googlu):
   fotka proklamace Solomon Day → About Us, IMG_8660 → galerie The Vessel,
   joined_video….mov (55 s z dronu) → 10 s video v kartě Morning; nevyužité zatím
   IMG_8657 (západ, na výšku) a IMG_8634.mov (4 s západ)). Na web jdou jen zmenšené kopie.
+  `stary-web/` — **kompletní kopie starého webu** (stažená 12. 10. 2026 před spuštěním):
+  `www.siestakeysailing.com/` = všechny stránky (i `/phone/`), fotky, 25 PDF, CSS, skripty
+  (96 MB) + `seznam-siestakeysailing.com.csv` (co se stáhlo). Složka `siestakeysailing.com/`
+  vedle je duplikát z prvního pokusu (lze smazat). `nahledy-hero/` — kandidáti na hlavní
+  fotku z 12. 10. 2026.
 - `assets/` — PDF a fotky ke stažení (stejné cesty jako na starém webu)
 - `robots.txt` + `<meta name="robots" content="noindex">` — náhled se
   nemá objevit ve vyhledávačích
 
 Hlavička, patička a spodní lišta Call/Text/WhatsApp jsou **v každém HTML
 souboru zvlášť** — změna v nich = změnit ve všech 10 souborech (včetně
-`404.html`). Odkazy mají `site.css?v=8`, `main.js?v=12`; po změně číslo zvýšit.
+`404.html`). Odkazy mají `site.css?v=9`, `main.js?v=12`; po změně číslo zvýšit.
 
 ## Design
 
@@ -168,9 +190,11 @@ při posouvání, text 20 px (starší hosté).
   na `/admin` a `/api/admin` (jednorázový kód e-mailem, povolené adresy v `EDITORS`); API
   token ověřuje znovu. Secret `GITHUB_TOKEN` (fine-grained, jen tohle repo, Contents: R/W).
   Lokálně: `.dev.vars` s `DEV_NO_AUTH=true` a `GITHUB_BRANCH=<testovací větev>`.
+  (Lokální větev `local/claude-notes-photos-editor` jen na Adamově Macu = starší Claudův
+  návrh editoru „oznámení + fotky“ z 11. 10. 2026, nahrazený tímhle; nepushovat.)
 - **JSON-LD LocalBusiness** v `<head>` na Home (adresa, telefon, $200 per hour).
-- **Titulky stránek** ve tvaru „… | Key Sailing Sarasota", s hledanými slovy
-  (např. Home „Sarasota Sailing Charter & Sunset Cruises“). Nadpisy na stránkách
+- **Titulky stránek** ve tvaru „… | Key Sailing Sarasota", s hledanými slovy; Home
+  (od 12. 10. 2026) „Key Sailing Charters Sarasota | Sarasota’s #1 Sailing Charter“. Nadpisy na stránkách
   jsou Janiny texty — měnit jen s jejím souhlasem.
 - **Video v kartě Morning** (Home EN i ES): hraje samo, potichu, dokola a jen když je
   na obrazovce; kulaté tlačítko vpravo nahoře ho pozastaví (WCAG: pohyb delší než 5 s
@@ -200,8 +224,12 @@ Web Analytics: zapíná se v dashboardu (projekt → Metrics → Web Analytics),
   a poslat obrázek z TripAdvisor Management Center
 - **10 · Observer 2023**: fotka tištěného článku → About Us, In the News (online článek už
   je prolinkovaný; sken tisku online není)
-- **12 · Southern Living**: fotka na About Us (online jsme ji nenašli); časem i dva články,
-  do té doby je „As seen twice in Southern Living Magazine" jen text bez odkazu.
+- **12 · Southern Living**: článek z 6. 6. 2026 je v Featured In (12. 10. 2026). Druhý
+  článek, který by Key Sailing jmenoval v textu, na southernliving.com není; jejich fotka
+  lodi („Key Sailing. Credit: Robbie Caponetto“) je ještě ve 3 článcích: Florida's 14 Unique
+  Coasts (8. 6. 2025, /florida-coasts-guide-11749928), Where Floridians Vacation… (3. 6. 2026),
+  11 Best Places To Live On The Gulf Coast… (13. 6. 2026). Jan: který je ten druhý (nebo
+  tištěné vydání)? Fotku na About Us od Jan pořád nemáme (jejich fotku nekopírujeme).
   (Fotka Herald 1962 je hotová: výřez z PDF „Missionary Speaks“ v časové ose „1962“.)
 - **Fotky, které nedorazily**: IMG_2672.jpeg a „Click to Download“ (nedostupné → poslat
   znovu); IMG_0602, IMG_3046, IMG_2629 (Poznámky) → Adam je přetáhne do
