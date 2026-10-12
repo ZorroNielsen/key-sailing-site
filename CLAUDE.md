@@ -160,8 +160,9 @@ při posouvání, text 20 px (starší hosté).
   data. Čísla: Cloudflare → D1 → sarasota-sites → Console:
   `SELECT day, type, count FROM taps WHERE site='key-sailing' ORDER BY day DESC;`
 - **Editor pro Jan** (`/admin/`, `admin/*`, `functions/api/admin/[[path]].js`): klepne na
-  jakýkoli text nebo fotku přímo na stránce a změní je; layout změnit nejde (jen obsah textů
-  a soubory fotek; hlavička, patička a call bar se needitují, protože jsou v každém souboru).
+  jakýkoli text nebo fotku přímo na stránce a změní je; ve skupinách fotek (mřížka hostů,
+  galerie, řada log) může fotky i přidat a odebrat. Jinak layout změnit nejde (hlavička,
+  patička a call bar se needitují, protože jsou v každém souboru).
   Publish = 1 commit na GitHub (autor „… (site editor)“), Cloudflare za ~1 min přestaví web;
   History → Undo vrátí změnu. Nové fotky: `images/uploads/`. Přihlášení: Cloudflare Access
   na `/admin` a `/api/admin` (jednorázový kód e-mailem, povolené adresy v `EDITORS`); API
