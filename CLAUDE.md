@@ -192,6 +192,9 @@ při posouvání, text 20 px (starší hosté).
   Lokálně: `.dev.vars` s `DEV_NO_AUTH=true` a `GITHUB_BRANCH=<testovací větev>`.
   (Lokální větev `local/claude-notes-photos-editor` jen na Adamově Macu = starší Claudův
   návrh editoru „oznámení + fotky“ z 11. 10. 2026, nahrazený tímhle; nepushovat.)
+- **Náhled odkazu** (iMessage, Facebook…): na všech stránkách `og:image` = západ slunce
+  `https://siestakeysailing.com/images/home/hero-sunset-1600.jpg` (absolutní adresa → funguje
+  až po spuštění na doméně); text náhledu bere `<title>` (12. 10. 2026, přání Jan: „#1“).
 - **JSON-LD LocalBusiness** v `<head>` na Home (adresa, telefon, $200 per hour).
 - **Titulky stránek** ve tvaru „… | Key Sailing Sarasota", s hledanými slovy; Home
   (od 12. 10. 2026) „Key Sailing Charters Sarasota | Sarasota’s #1 Sailing Charter“. Nadpisy na stránkách
