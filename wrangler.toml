@@ -18,9 +18,10 @@ FORMS_LIVE = "false"
 GITHUB_REPO = "ZorroNielsen/key-sailing-site"
 GITHUB_BRANCH = "main"
 EDITORS = "siestakeysailing@gmail.com,websitesbychris.co@gmail.com"
-# Cloudflare Access login for /admin and /api/admin: team domain + the application's audience tag
-ACCESS_TEAM = ""
-ACCESS_AUD = ""
+# Cloudflare Access login for /admin and /api/admin: team domain + the applications' audience tags
+# (comma-separated; Zero Trust → Access → Applications → the app → Overview → Application Audience Tag)
+ACCESS_TEAM = "keysailing.cloudflareaccess.com"
+ACCESS_AUD = "bc4e0a6a69712106cbe58af8ca4d2d7bc62e052afddacb9e3891ffa441f99a0e,b1e3078be2dbd8f14c274eb9507a3e8af6bafd471e3200081619b8b1afc64f4a"
 
 [[d1_databases]]
 binding = "DB"
