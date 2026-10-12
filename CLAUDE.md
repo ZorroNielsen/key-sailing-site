@@ -159,6 +159,14 @@ při posouvání, text 20 px (starší hosté).
   tabulka `taps` (site, day, type, count; den v čase Sarasoty). Žádná osobní
   data. Čísla: Cloudflare → D1 → sarasota-sites → Console:
   `SELECT day, type, count FROM taps WHERE site='key-sailing' ORDER BY day DESC;`
+- **Editor pro Jan** (`/admin/`, `admin/*`, `functions/api/admin/[[path]].js`): klepne na
+  jakýkoli text nebo fotku přímo na stránce a změní je; layout změnit nejde (jen obsah textů
+  a soubory fotek; hlavička, patička a call bar se needitují, protože jsou v každém souboru).
+  Publish = 1 commit na GitHub (autor „… (site editor)“), Cloudflare za ~1 min přestaví web;
+  History → Undo vrátí změnu. Nové fotky: `images/uploads/`. Přihlášení: Cloudflare Access
+  na `/admin` a `/api/admin` (jednorázový kód e-mailem, povolené adresy v `EDITORS`); API
+  token ověřuje znovu. Secret `GITHUB_TOKEN` (fine-grained, jen tohle repo, Contents: R/W).
+  Lokálně: `.dev.vars` s `DEV_NO_AUTH=true` a `GITHUB_BRANCH=<testovací větev>`.
 - **JSON-LD LocalBusiness** v `<head>` na Home (adresa, telefon, $200 per hour).
 - **Titulky stránek** ve tvaru „… | Key Sailing Sarasota", s hledanými slovy
   (např. Home „Sarasota Sailing Charter & Sunset Cruises“). Nadpisy na stránkách
@@ -201,8 +209,8 @@ Web Analytics: zapíná se v dashboardu (projekt → Metrics → Web Analytics),
 - **Potvrdit**: facebookové video (Tim ve Washingtonu) je to správné; souhlas s doplněním
   „Sarasota“ do nadpisů (Google); odkazy facebook.com/keysailing a
   instagram.com/keybreezesailing; oprava překlepů ze starého webu (ano/ne)
-- **14 · Úpravy sama**: rozhodnutí o návrhu (claude.ai/artifact/Guw2twgogDqpxsxupuVvvL —
-  formulář na /admin, přihlášení kódem z e-mailu, ceny / oznámení s datem / fotky)
+- **14 · Úpravy sama**: editor je hotový (11. 10. 2026) — `/admin/` (viz Funkce → Editor);
+  chybí jen GitHub token + Cloudflare Access (přihlášení kódem z e-mailu)
 - **Google review odkaz** → doplnit do `_redirects` jako `/review` (302)
 - **Stripe**: 3 payment linky ($400 / $500 / $600) místo okna „Checkout comes here"
 - **Španělština**: kontrola Home od Tima, pak překlad zbytku stránek
