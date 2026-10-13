@@ -1,0 +1,5 @@
+# The preview addresses stay out of Google; only siestakeysailing.com is indexed.
+https://key-sailing-site.pages.dev/*
+  X-Robots-Tag: noindex
+https://:version.key-sailing-site.pages.dev/*
+  X-Robots-Tag: noindex

@@ -174,8 +174,8 @@ při posouvání, text 20 px (starší hosté).
   `FORMS_LIVE = "false"`, jde každá zpráva na `TEST_TO`, nikdy na Jan.
   Lokálně (python http.server) funkce neběží → formulář ukáže chybovou hlášku.
 - **Turnstile** — widget „Sarasota sites" (společný pro oba weby), site key
-  `0x4AAAAAAFNkFBzFm2CQXTsB` v `email-us.html`. Hostnames zatím jen `*.pages.dev`; při spuštění
-  přidat ostré domény. Secret key je v Pages secrets (`TURNSTILE_SECRET_KEY`).
+  `0x4AAAAAAFNkFBzFm2CQXTsB` v `email-us.html`. Hostnames `*.pages.dev`, siestakeysailing.com, www
+  a sailinghomesarasota.com, www (ověřeno 13. 10. 2026). Secret key je v Pages secrets (`TURNSTILE_SECRET_KEY`).
 - **Počítání kliknutí** — Call / Text / WhatsApp / gift tlačítka pošlou
   `navigator.sendBeacon` na `/api/tap` → D1 databáze `sarasota-sites`,
   tabulka `taps` (site, day, type, count; den v čase Sarasoty). Žádná osobní
@@ -254,18 +254,38 @@ Web Analytics: zapíná se v dashboardu (projekt → Metrics → Web Analytics),
 - **Ke spuštění**: kdo spravuje doménu siestakeysailing.com (přístup); jestli Jan používá
   e-mail na doméně (pak zachovat MX záznamy)
 
-## Při spuštění (až weby nahradí ty staré)
+## Spuštění (12. 10. 2026) — hotovo
 
-- Domény siestakeysailing.com (+ www) na Cloudflare, napojit na Pages projekt
-- Smazat `Disallow: /` z `robots.txt` a `<meta name="robots" content="noindex…">` ze všech stránek
-- Formuláře: v Resend přidat a ověřit doménu siestakeysailing.com (DNS záznamy SPF/DKIM/DMARC
-  přidat v Cloudflare DNS), `MAIL_FROM` přepnout na adresu z ní (např.
-  `website@siestakeysailing.com`), pak `FORMS_LIVE = "true"` — teprve tehdy chodí zprávy Jan.
-  Bez ověřené domény padají e-maily do spamu (test 4. 10. 2026: všechny 3
-  formuláře doručeny přes `onboarding@resend.dev`, ale do spamu).
-- Turnstile: přidat ostré domény do hostnames widgetu
-- Odkazy „Jan's book" (patička + About Us) teď vedou na náhled `sailing-home-sarasota-site.pages.dev` → při spuštění vrátit na `https://sailinghomesarasota.com/`
-- **Google Search Console**: ověřit doménu, poslat `sitemap.xml`
+Web běží na **https://siestakeysailing.com** (Cloudflare Pages, zóna na Cloudflaru, nameservery
+`melinda` / `sam.ns.cloudflare.com`; registrátor dál GoDaddy). Zkontrolováno 13. 10. 2026:
+- https na obou adresách (certifikát Google Trust Services), http → https, **www → bez www** (301,
+  i s cestou), staré adresy `/phone/*` (301) a `*.html` (308) vedou na nové stránky
+- všech 9 stránek + 404 na počítači i mobilu bez chyb, rozbitých obrázků a vodorovného posunu
+- `robots.txt` otevřený, žádné `noindex`; `sitemap.xml`; náhled `key-sailing-site.pages.dev` je za
+  přihlášením a navíc `X-Robots-Tag: noindex` (`_headers`)
+- **pošta beze změny**: MX `smtp` / `mailstore1.secureserver.net`, poštovní záznamy (`email`, `imap`,
+  `pop`, `smtp`, `webmail`, `mail`, `e`, `pda`) jsou **DNS only**; SPF a `_dmarc p=reject` zůstaly
+- formuláře naostro (`FORMS_LIVE = "true"`) → Jan + kopie Donně, odesílá
+  `website@siestakeysailing.com` (doména ověřená v Resendu na účtu collaboratora; DKIM
+  `resend._domainkey`, `send` / `rsend` CNAME na `*.forge.rmta.net`). Bez Turnstile tokenu
+  `/api/contact` odmítne (`turnstile`), nic neodešle.
+- Turnstile přijímá siestakeysailing.com i www (ověřeno vykreslením widgetu)
+- editor `/admin` + `/api/admin`: Access aplikace pro siestakeysailing.com (AUD `4fcc63c0…`
+  ve `wrangler.toml`)
+- `cpanel`, `ftp`, `whm`, `webdisk` míří na `@` → teď na nový web (starý hosting jen přes IP
+  198.12.239.172 / `admin`, `old`)
+
+**Zbývá po spuštění:**
+- **Google Search Console**: doména už má `google-site-verification` TXT (někdo vlastnictví má —
+  zjistit kdo, nejspíš Jan), poslat `sitemap.xml`
+- Španělská `/es/` je indexovaná, ale má pruh „BORRADOR · DRAFT“ → rozhodnout (noindex do kontroly
+  od Tima, nebo pruh pryč)
+- Cloudflare **Email Address Obfuscation** (Scrape Shield) přepisuje e-mailovou adresu na
+  stránkách na `/cdn-cgi/l/email-protection` — funguje s JS; vypnout, pokud by dělala potíže
+- Starý hosting u GoDaddy: nechat, dokud je jisté, že nic nechybí; pak zrušit **jen hosting,
+  ne e-mail** (pošta je GoDaddy)
+- Interní odkazy vedou na `*.html` → každé kliknutí = jedno přesměrování 308 (funguje; volitelně
+  přepsat na čisté adresy)
 
 ## Po spuštění — zápisy na mapách a v katalozích
 
