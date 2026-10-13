@@ -23,7 +23,7 @@ EDITORS = "siestakeysailing@gmail.com,websitesbychris.co@gmail.com,adam.kriz.333
 # Cloudflare Access login for /admin and /api/admin: team domain + the applications' audience tags
 # (comma-separated; Zero Trust → Access → Applications → the app → Overview → Application Audience Tag)
 ACCESS_TEAM = "keysailing.cloudflareaccess.com"
-ACCESS_AUD = "bc4e0a6a69712106cbe58af8ca4d2d7bc62e052afddacb9e3891ffa441f99a0e,b1e3078be2dbd8f14c274eb9507a3e8af6bafd471e3200081619b8b1afc64f4a"
+ACCESS_AUD = "b1e3078be2dbd8f14c274eb9507a3e8af6bafd471e3200081619b8b1afc64f4a,4fcc63c0f4f8bbb4762115d60fa6cd93dff6c6c87eb3b7f428a9902472bb7944"
 
 [[d1_databases]]
 binding = "DB"
