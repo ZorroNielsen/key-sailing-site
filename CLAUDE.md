@@ -69,6 +69,15 @@ Vědomé odchylky od starého webu:
   Display P3 → sRGB, Lanczos + jemné doostření, WebP q86 a nová verze 3200 px pro retina
   monitory (`hero-sunset-1600/2400/3200.webp`, záloha `1600.jpg`). Mobil nově 76D3CAD9
   (stejná scéna, ostrá, bez světelného pruhu; 1200×1500). Kandidáti v `originals/nahledy-hero/`.
+- **Relief Work** (13. 10. 2026, Janina zpráva Adamovi, schváleno v návrhu): Janin text slovo od
+  slova; nadpisy jsou její vlastní věty („Captain Jeremy Brubaker provides relief!“, otázka o
+  Antarktidě). Nové jsou jen popisky tlačítek (Call Captain Jeremy / Call Donna). Vynechané Janiny
+  pokyny pro nás („(Jeremy can provide the website link)“, „Please include his phone number“);
+  `9413467245` → 941-346-7245; tečka na konci Donnina odstavce. Odkaz „online dessert business“ →
+  insidebrucrewlife.com (Jocelynin web, adresa od collaboratora). Fotky vnoučat hned pod úvodem
+  (tam o nich Jan píše), originály v `originals/6-relief-work/`, web `images/relief/`.
+  Položka „Relief Work“ je v menu (mezi About Us a Directions, i na ES) a v patičce všech stránek;
+  menu se proto schová do tlačítka Menu už pod **1340 px** (dřív 1260), jinak by se smáčklo logo.
 - Directions (7. 10. 2026): Janin text „Sailing Details for your Key Sailing Private
   Charter Experience“ (jak projít ke gate E-1 kvůli stavbě) v béžovém boxu vedle mapy,
   slovo od slova podle její zprávy hostům, jen **bez emoji** (🍫 🔑 ⛵) kvůli zákazu
@@ -94,6 +103,7 @@ webu** (aby fungovaly staré odkazy a výsledky Googlu):
 | `about-us.html` | About Us |
 | `directions.html` | Directions |
 | `email-us.html` | Email Us (formulář) |
+| `relief-work.html` | Relief Work (od 13. 10. 2026): kdo zaskočí, když jsou Tim a Jan pryč — Captain Jeremy Brubaker, Donna, fotky vnoučat |
 | `es/index.html` | Španělský **koncept** jen Home (čeká na kontrolu od Tima) |
 
 - `site.css` — vzhled všech stránek; barvy jako CSS proměnné v `:root`
@@ -136,7 +146,7 @@ webu** (aby fungovaly staré odkazy a výsledky Googlu):
 
 Hlavička, patička a spodní lišta Call/Text/WhatsApp jsou **v každém HTML
 souboru zvlášť** — změna v nich = změnit ve všech 10 souborech (včetně
-`404.html`). Odkazy mají `site.css?v=9`, `main.js?v=12`; po změně číslo zvýšit.
+`404.html`). Odkazy mají `site.css?v=10`, `main.js?v=12`; po změně číslo zvýšit.
 
 ## Design
 
@@ -195,7 +205,13 @@ při posouvání, text 20 px (starší hosté).
 - **Náhled odkazu** (iMessage, Facebook…): na všech stránkách `og:image` = západ slunce
   `https://siestakeysailing.com/images/home/hero-sunset-1600.jpg` (absolutní adresa → funguje
   až po spuštění na doméně); text náhledu bere `<title>` (12. 10. 2026, přání Jan: „#1“).
-- **JSON-LD LocalBusiness** v `<head>` na Home (adresa, telefon, $200 per hour).
+- **Strukturovaná data (JSON-LD) a `llms.txt`** (13. 10. 2026, aby web dobře četly Google, ChatGPT apod.):
+  Home = `WebSite` + `LocalBusiness`/`TouristAttraction` (`@id …/#business`: adresa, telefon, cena
+  $200/h do 6 hostů a $80 za dalšího do 12, Tim a Jan, Captain Jeremy, ocenění ze seznamu, platby,
+  jazyky); FAQs = `FAQPage` (všech 17 otázek a odpovědí slovo od slova ze stránky); About Us = Tim a
+  Jan (`Person`); Relief Work = `WebPage` s Jeremym a Donnou. **Při změně textu na stránce změnit i
+  JSON-LD** (FAQ!). `llms.txt` v kořeni = krátké shrnutí pro AI (fakta jen z webu). Všichni AI
+  roboti (GPTBot, OAI-SearchBot, ChatGPT-User, PerplexityBot, ClaudeBot) dostávají 200.
 - **Titulky stránek** ve tvaru „… | Key Sailing Sarasota", s hledanými slovy; Home
   (od 12. 10. 2026) „Key Sailing Charters Sarasota | Sarasota’s #1 Sailing Charter“. Nadpisy na stránkách
   jsou Janiny texty — měnit jen s jejím souhlasem.
