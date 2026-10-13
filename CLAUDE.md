@@ -104,7 +104,7 @@ webu** (aby fungovaly staré odkazy a výsledky Googlu):
 | `directions.html` | Directions |
 | `email-us.html` | Email Us (formulář) |
 | `relief-work.html` | Relief Work (od 13. 10. 2026): kdo zaskočí, když jsou Tim a Jan pryč — Captain Jeremy Brubaker, Donna, fotky vnoučat |
-| `es/index.html` | Španělský **koncept** jen Home (čeká na kontrolu od Tima) |
+| `es/*.html` | **Španělská verze** (koncept, kontroluje Tim): Home (indexovaná, viz otázka na collaboratora) + od 13. 10. 2026 Reserve, The Vessel, FAQs, About Us, Relief Work, Directions, Email Us (`noindex`, zatím ne v sitemap). Reviews jen anglicky (slova hostů se nepřekládají), „Reseñas“ vede na `../reviews.html` |
 
 - `site.css` — vzhled všech stránek; barvy jako CSS proměnné v `:root`
 - `images/home/` — fotky nové Home z Janiných originálů (WebP + JPG záloha,
@@ -146,7 +146,7 @@ webu** (aby fungovaly staré odkazy a výsledky Googlu):
 
 Hlavička, patička a spodní lišta Call/Text/WhatsApp jsou **v každém HTML
 souboru zvlášť** — změna v nich = změnit ve všech 10 souborech (včetně
-`404.html`). Odkazy mají `site.css?v=10`, `main.js?v=12`; po změně číslo zvýšit.
+`404.html`). Odkazy mají `site.css?v=11`, `main.js?v=12`; po změně číslo zvýšit.
 
 ## Design
 
@@ -233,42 +233,37 @@ při posouvání, text 20 px (starší hosté).
 
 Web Analytics: zapíná se v dashboardu (projekt → Metrics → Web Analytics), bez kódu.
 
-## Čeká se na Jan (aktuální k 7. 10. 2026)
+## Co ještě chybí (aktuální k 13. 10. 2026)
 
-Čísla odpovídají seznamu od collaboratora (7. 10. 2026).
+Hotové a vyřešené body jsou pryč (editor, formulář starého webu a přístup k doméně vyřešilo
+spuštění 12. 10. 2026).
 
-- **8 · TripAdvisor 2026**: odznaky Travelers' Choice 2026 místo 2023 a 2020 (Home →
-  Award Winning, Reviews). Na stránce Key Sailing na TripAdvisoru **žádný odznak 2026
-  není** (jediný odznak 2026 tam patří jiné firmě) → Jan musí potvrdit, že ocenění má,
-  a poslat obrázek z TripAdvisor Management Center
-- **10 · Observer 2023**: fotka tištěného článku → About Us, In the News (online článek už
-  je prolinkovaný; sken tisku online není)
-- **12 · Southern Living**: článek z 6. 6. 2026 je v Featured In (12. 10. 2026). Druhý
-  článek, který by Key Sailing jmenoval v textu, na southernliving.com není; jejich fotka
-  lodi („Key Sailing. Credit: Robbie Caponetto“) je ještě ve 3 článcích: Florida's 14 Unique
-  Coasts (8. 6. 2025, /florida-coasts-guide-11749928), Where Floridians Vacation… (3. 6. 2026),
-  11 Best Places To Live On The Gulf Coast… (13. 6. 2026). Jan: který je ten druhý (nebo
-  tištěné vydání)? Fotku na About Us od Jan pořád nemáme (jejich fotku nekopírujeme).
-  (Fotka Herald 1962 je hotová: výřez z PDF „Missionary Speaks“ v časové ose „1962“.)
-- **Fotky, které nedorazily**: IMG_2672.jpeg a „Click to Download“ (nedostupné → poslat
-  znovu); IMG_0602, IMG_3046, IMG_2629 (Poznámky) → Adam je přetáhne do
-  `originals/5-dalsi-fotky/`. macOS Claudovi nedovolí číst složku Zpráv.
-- **Větší fotky na The Vessel**: paluba, stín, kajuta, dvě toalety, bean bags
-- **Potvrdit**: facebookové video (Tim ve Washingtonu) je to správné; souhlas s doplněním
-  „Sarasota“ do nadpisů (Google); odkazy facebook.com/keysailing a
-  instagram.com/keybreezesailing; oprava překlepů ze starého webu (ano/ne)
-- **14 · Úpravy sama**: editor je hotový (11. 10. 2026) — `/admin/` (viz Funkce → Editor);
-  chybí jen GitHub token + Cloudflare Access (přihlášení kódem z e-mailu)
+### Od Jan
+
+(TripAdvisor 2026, Observer, Southern Living, fotky na The Vessel, chybějící fotky a potvrzení
+videa / nadpisů / odkazů / překlepů Adam 13. 10. 2026 vyškrtl: neřešíme.)
+
+- **Relief Work** (stránka hotová 13. 10. 2026): potvrdit odkaz na Jocelynin web
+  `insidebrucrewlife.com` (měl ho poslat Jeremy). Svatební fotku u sochy Adam 13. 10. 2026 vyškrtl.
 - **Google review odkaz** → doplnit do `_redirects` jako `/review` (302)
-- **Stripe**: 3 payment linky ($400 / $500 / $600) místo okna „Checkout comes here"
-- **Španělština**: kontrola Home od Tima, pak překlad zbytku stránek
-- **Starý web — formulář nechodí** (Jan psala 7. 10. 2026): stránka i PHP skript na
-  GoDaddy fungují, problém je v doručení e-mailu (staré Adobe Muse posílá „jako“ Janina
-  adresa; Gmail to blokuje / dává do spamu, doména má DMARC p=reject). Jan má zkontrolovat
-  spam a dát přístup do GoDaddy (Delegate Access). Trvalé řešení = spuštění nového webu.
+- **Stripe**: 3 payment linky ($400 / $500 / $600); do té doby jsou tlačítka poukazů schovaná
+- **Španělština**: kontrola všech `es/` stránek od Tima (i položka menu „Relief Work“, zatím
+  anglicky; vtip „Two heads are better than one“ má v ES vysvětlivku). Po schválení: pryč pruh
+  BORRADOR, `noindex` z nových `es/` stránek, přidat je do `sitemap.xml` (+ případně `hreflang`)
 - **Pozvánka jako manažer** do Google Business Profile (viz „Po spuštění — zápisy")
-- **Ke spuštění**: kdo spravuje doménu siestakeysailing.com (přístup); jestli Jan používá
-  e-mail na doméně (pak zachovat MX záznamy)
+
+### Otázky na collaboratora
+
+- Španělská `/es/` je od spuštění v Googlu, ale má pruh „BORRADOR · DRAFT“ → `noindex` do
+  kontroly od Tima, nebo pruh pryč?
+- **Google Search Console**: kdo má přístup (v DNS je `google-site-verification`)? Poslat
+  `sitemap.xml` obou webů.
+- **Bing Webmaster Tools** (ChatGPT hledá přes Bing): přidat oba weby / převzít ze Search Console,
+  poslat sitemap; v Cloudflaru zapnout **Crawler Hints** (IndexNow)
+- Access aplikace s politikou „Site Editors“ zamykají **celé** náhledy na `*.pages.dev` — záměr?
+  (ostré domény mají zamčené jen `/admin`)
+- Kdy zrušit starý hosting u GoDaddy — **jen hosting, e-mail zůstává**
+- Resend a formuláře spravuje collaborator (účet websitesbychris) — **na Resendu nic neměnit**
 
 ## Spuštění (12. 10. 2026) — hotovo
 
@@ -326,6 +321,18 @@ Cíl (Jan): být co nejvýš při hledání „sailing Sarasota“, „sailing c
   charter (24 years!)", ale firma běží od 1996 → poprosit o opravu
   (nejlíp „Established 1996", ať to znovu nezastará) a sjednotit adresu
   (mají „Marina Jack Slip E-19").
+- **MustDo.com** (mustdo.com/fl/sarasota-gulf-islands-venice-bradenton/activities/key-sailing):
+  adresa „2 Marina Plaza, **E-18**“ → má být **E-19**; staré balíčky (The Manatee / Dolphin /
+  Pelican) a kupon „$2.00 off per person“; web www.SiestaKeySailing.com.
+- **Visit Sarasota** (visitsarasota.com/attractions-tours/key-sailing): údaje v pořádku
+  („2 Marina Plz“, (941) 346-7245); jen web `http://www.siestakeysailing.com` → ideálně
+  `https://siestakeysailing.com/` (funguje i tak, přesměruje).
+
+**Audit 13. 10. 2026** (Claude, veřejné stránky): výše uvedené tři zkontrolované. TripAdvisor,
+Yelp a Bing se nepodařilo otevřít (blokují automatický přístup), Google a Apple jen přes účet
+majitele. Všechny zápisy smí měnit jen Jan (nebo s jejím přístupem) — Claude za ni účty
+nezakládá ani se nepřihlašuje. Hotové zprávy pro Chamber a MustDo (anglicky, posílá Jan) a seznam platforem k převzetí:
+`originals/zpravy-katalogy.md` (jen na Adamově Macu).
 
 ## Lokální náhled
 
