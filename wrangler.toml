@@ -13,8 +13,8 @@ MAIL_FROM = "Key Sailing website <website@siestakeysailing.com>"
 LIVE_TO = "siestakeysailing@gmail.com"
 # Gets a copy of every form once it's live (Donna, who helps Jan with the schedule; Jan's wish 12 Oct 2026)
 LIVE_CC = "donna.mason@me.com"
-# Keep "false" until launch: every form goes to TEST_TO, never to Jan.
-FORMS_LIVE = "false"
+# "true" since launch (12 Oct 2026): forms go to LIVE_TO + LIVE_CC. "false" sends them to TEST_TO instead.
+FORMS_LIVE = "true"
 
 # Site editor (/admin/, functions/api/admin/[[path]].js). Secret GITHUB_TOKEN is in the dashboard.
 GITHUB_REPO = "ZorroNielsen/key-sailing-site"
