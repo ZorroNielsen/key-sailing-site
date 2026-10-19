@@ -119,14 +119,16 @@ figure { margin: 0; }
 .tagline { max-width: 8.5em; font-size: 1rem; font-weight: 500; line-height: 1.3; color: var(--ink-soft); }
 .logo:hover .tagline { color: var(--ink); }
 
-.site-nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 0.35rem; }
+.site-nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 0.15rem; }
 .site-nav li { margin: 0; }
 .site-nav a {
-  display: block; padding: 0.55rem 0.6rem;
+  display: block; padding: 0.55rem 0.45rem;
   color: var(--ink); font-size: 1.125rem; font-weight: 500;
   text-decoration: none; white-space: nowrap;
   border-bottom: 2px solid transparent;
 }
+/* Spanish menu labels are longer: a touch smaller so the menu doesn't run into the tagline */
+html[lang="es"] .site-nav a { padding-inline: 0.3rem; font-size: 1.05rem; }
 .site-nav a:hover { border-bottom-color: var(--ink); color: var(--ink); }
 .site-nav a[aria-current="page"] { border-bottom-color: var(--ink); }
 
@@ -547,3 +549,10 @@ fieldset.field { border: 0; margin: 0; padding: 0; }
 .draft-note { background: var(--beige); color: var(--ink); font-weight: 600; text-align: center; padding: 0.7rem 1rem; font-size: 1.05rem; }
 
 [hidden] { display: none !important; }
+
+/* Favorite Videos page: Jan's clips in a grid of rounded squares; they play on tap, with sound */
+.videos { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+/* --ar = width / height of the clip: clips in one row share the same height */
+.videos figure { margin: 0; flex: var(--ar, 1) 1 0; min-width: 0; }
+.videos video { display: block; width: 100%; height: auto; border-radius: var(--radius); background: var(--beige); }
+@media (max-width: 760px) { .videos { flex-direction: column; gap: 1rem; } .videos figure { flex: none; } }
